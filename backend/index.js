@@ -4,12 +4,14 @@ import bodyParser from 'body-parser';
 
 import mongoose from 'mongoose';
 
+import cors from 'cors';//cors cookies
+
 // import routes
 import usersRoutes from './routes/users.js';
 
 const app=express();
 
-const PORT = 5000;
+const PORT = 8000;
 
 app.use(bodyParser.json());
 
@@ -27,6 +29,14 @@ async function connectToDatabase() {
 }
 
 connectToDatabase();
+
+app.use(cors())
+
+// middleware cors
+var corsOptions = {
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 
 // import routes
 app.use('/', usersRoutes);

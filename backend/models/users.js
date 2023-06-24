@@ -4,7 +4,7 @@ const schema = new mongoose.Schema({
   firstName: {
     type: String
   },
-  lasstName: {
+  lastName: {
     type: String
   },
   age: {
